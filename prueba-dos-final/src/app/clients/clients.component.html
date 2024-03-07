@@ -1,0 +1,56 @@
+<app-clients-header></app-clients-header>
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-xs-6">
+            <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+            <h2>Bienvenido, {{ username }}</h2>
+        </div>
+        <div class="col-xs-6 text-right">
+            <a href="#" class="btn btn-danger" (click)="logout()" role="button">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <div *ngIf="contracts && contracts.length > 0">
+        <h3>Tus Contratos</h3>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let contract of contracts">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Producto: {{ contract.product.productName }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>ID de Contrato:</strong> {{ contract.contractId }}</p>
+                        <p><strong>Estado del Contrato:</strong> {{ contract.statusContract.description }}</p>
+                        <p><strong>Descripción:</strong> {{ contract.product.productDescription }}</p>
+                        <p><strong>Velocidad:</strong> {{ contract.product.speed }}</p>
+                        <p><strong>Precio:</strong> {{ contract.product.price | currency:'USD':true }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="contracts.length === 0" class="alert alert-info">
+        No tienes contratos.
+    </div>
+
+    <div *ngIf="attentions && attentions.length > 0">
+        <h3>Tus Turnos Generados</h3>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let attention of attentions">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Turno ID: {{ attention.attentionId }}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Estado del turno: {{ attention.attentionStatus.description }}</p>
+                        <p>Tipo de turno: {{ attention.attentionType.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="attentions.length === 0" class="alert alert-info">
+        No tienes turnos generados.
+    </div>
+</div>

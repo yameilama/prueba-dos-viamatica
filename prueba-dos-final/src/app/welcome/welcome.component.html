@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h2 class="mb-3">Bienvenido</h2>
+        <p class="lead">¡Hola, <strong>{{ username }}</strong>!</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Turnos atendidos:</h3>
+                    <!-- Aquí podría ir un gráfico o lista de turnos atendidos -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Usuarios pendientes de aprobación:</h3>
+                    <!-- Aquí iría la lista de usuarios pendientes de aprobación -->
+                    <!-- Ejemplo de lista simple -->
+                    <ul class="list-group list-group-flush">
+                        <!-- Simulación de elementos de lista, reemplazar con *ngFor para datos dinámicos -->
+                        <li class="list-group-item">Usuario 1 <button
+                                class="btn btn-sm btn-success float-right">Aprobar</button></li>
+                        <li class="list-group-item">Usuario 2 <button
+                                class="btn btn-sm btn-success float-right">Aprobar</button></li>
+                        <!-- Final de simulación -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <button class="btn btn-outline-danger" (click)="logout()">Cerrar sesión</button>
+    </div>
+</div>

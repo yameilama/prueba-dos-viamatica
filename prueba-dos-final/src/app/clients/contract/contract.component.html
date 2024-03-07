@@ -1,0 +1,19 @@
+<app-clients-header></app-clients-header>
+<div class="container">
+    <h1>Generar turno</h1>
+    <button class="btn btn-secondary mb-3" (click)="goBack()">Volver</button>
+
+    <hr>
+
+    <form (ngSubmit)="generateAttention()">
+        <div class="form-group">
+            <label for="attentionTypeId">Tipo de Turno</label>
+            <select [(ngModel)]="attentionTypeId" (change)="onSelectType()" id="attentionTypeId" class="form-control"
+                name="attentionTypeId">
+                <option *ngFor="let type of ticketTypes" [value]="type.attentionTypeId">{{ type.description }}</option>
+            </select>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Generar</button>
+    </form>
+</div>

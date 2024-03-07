@@ -1,0 +1,138 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center">Registrate</h2>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="well">
+
+                <!-- Nombres -->
+                <div class="form-group">
+                    <label for="name">Nombres:</label>
+                    <input type="text" class="form-control" id="name" formControlName="name"
+                        placeholder="Ingresa tus nombres">
+                    <div
+                        *ngIf="registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)">
+                        <p *ngIf="registerForm.get('name').errors.required" class="error-message">Los nombres son
+                            requeridos.</p>
+                    </div>
+                </div>
+
+
+                <!-- Apellidos -->
+                <div class="form-group">
+                    <label for="lastName">Apellidos:</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName"
+                        placeholder="Ingresa tus apellidos">
+                    <div
+                        *ngIf="registerForm.get('lastName').errors && (registerForm.get('lastName').dirty || registerForm.get('lastName').touched)">
+                        <p *ngIf="registerForm.get('lastName').errors.required" class="error-message">Los apellidos son
+                            requeridos.</p>
+                    </div>
+                </div>
+
+                <!-- Identificación -->
+                <div class="form-group">
+                    <label for="identification">Identificación:</label>
+                    <input type="text" class="form-control" id="identification" formControlName="identification"
+                        placeholder="Ingresa tu identificación" (input)="numericInputOnly($event)">
+                    <div
+                        *ngIf="registerForm.get('identification').errors && (registerForm.get('identification').dirty || registerForm.get('identification').touched)">
+                        <p *ngIf="registerForm.get('identification').errors.required" class="error-message">La
+                            identificación es requerida.</p>
+                        <p *ngIf="registerForm.get('identification').errors.pattern" class="error-message">La
+                            identificación debe ser numérica y contener entre 10 y 13 dígitos.</p>
+                    </div>
+                </div>
+
+
+                <!-- Usuario -->
+                <div class="form-group">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" class="form-control" id="username" formControlName="username"
+                        placeholder="Ingresa tu usuario">
+                    <div *ngIf="username.errors && (username.dirty || username.touched)">
+                        <p *ngIf="username.errors.required" class="error-message">El usuario es requerido.</p>
+                        <p *ngIf="username.errors.minlength" class="error-message">El usuario debe tener al menos 8
+                            caracteres.</p>
+                        <p *ngIf="username.errors.maxlength" class="error-message">El usuario no debe exceder los 20
+                            caracteres.</p>
+                        <p *ngIf="username.errors.pattern" class="error-message">El usuario debe tener al menos un
+                            número, una letra mayúscula, y no contener signos.</p>
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" class="form-control" id="password" formControlName="password"
+                        placeholder="Ingresa tu contraseña">
+                    <div
+                        *ngIf="registerForm.get('password').errors && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                        <p *ngIf="registerForm.get('password').errors.required" class="error-message">La contraseña es
+                            requerida.</p>
+                        <p *ngIf="registerForm.get('password').errors.pattern" class="error-message">La contraseña
+                            debe tener al menos 8 caracteres, incluir una letra mayúscula, un número, y un signo, sin
+                            espacios.</p>
+                    </div>
+                </div>
+
+                <!-- Correo -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" formControlName="email"
+                        placeholder="Ingresa tu correo electrónico">
+                </div>
+
+                <!-- Telefono -->
+                <div class="form-group">
+                    <label for="phoneNumber">Teléfono:</label>
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"
+                        placeholder="Ingresa tu teléfono">
+                    <div
+                        *ngIf="registerForm.get('phoneNumber').errors && (registerForm.get('phoneNumber').dirty || registerForm.get('phoneNumber').touched)">
+                        <p *ngIf="registerForm.get('phoneNumber').errors.required" class="error-message">El número de
+                            teléfono es requerido.
+                        </p>
+                        <p *ngIf="registerForm.get('phoneNumber').errors.pattern" class="error-message">El número de
+                            teléfono debe empezar con 09 y contener 10 dígitos.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Dirección -->
+                <div class="form-group">
+                    <label for="address">Dirección:</label>
+                    <input type="text" class="form-control" id="address" formControlName="address"
+                        placeholder="Ingresa tu dirección">
+                    <div
+                        *ngIf="registerForm.get('address').errors && (registerForm.get('address').dirty || registerForm.get('address').touched)">
+                        <p *ngIf="registerForm.get('address').errors.required" class="error-message">La dirección es
+                            requerida.</p>
+                        <p *ngIf="registerForm.get('address').errors.minlength" class="error-message">La dirección debe
+                            tener al menos 20
+                            caracteres.</p>
+                        <p *ngIf="registerForm.get('address').errors.maxlength" class="error-message">La dirección debe
+                            tener máximo 100
+                            caracteres.</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Referencia -->
+                <div class="form-group">
+                    <label for="addressReference">Referencia de la Dirección:</label>
+                    <input type="text" class="form-control" id="addressReference" formControlName="addressReference"
+                        placeholder="Ingresa una referencia">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block"
+                    [disabled]="!registerForm.valid">Regístrate</button>
+
+                <div class="text-center" style="margin-top: 15px;">
+                    <a routerLink="/login">Inicia Sesión</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
