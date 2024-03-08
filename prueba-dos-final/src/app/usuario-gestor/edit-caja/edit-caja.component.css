@@ -1,0 +1,44 @@
+.custom-form .form-control {
+    height: auto;
+
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.custom-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.custom-form .btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.custom-form h2 {
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 15px;
+}
+
+.custom-form .form-control::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-form .form-control::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.custom-form .form-control::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.custom-form .form-control::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

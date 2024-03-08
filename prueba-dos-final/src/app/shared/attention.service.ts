@@ -10,6 +10,7 @@ export class AttentionService {
 
   private apiUrlGenerate = 'http://localhost:8080/api/attention-type/generate';
   private apiUrlMyAttention = 'http://localhost:8080/api/attention-type/my-attention';
+  private apiUrlGetAll = 'http://localhost:8080/api/attention-type/all';
 
   constructor(private http: HttpClient) { }
 
@@ -24,4 +25,12 @@ export class AttentionService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<Attention[]>(this.apiUrlMyAttention, { headers });
   }
+
+
+  getAll(): Observable<Attention[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Attention[]>(this.apiUrlGetAll, { headers });
+  }
+
 }

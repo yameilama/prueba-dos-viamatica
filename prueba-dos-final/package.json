@@ -19,7 +19,9 @@
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
     "bootstrap": "^3.4.1",
+    "bootstrap-select": "^1.13.14",
     "rxjs": "~7.8.0",
+    "select2": "^4.1.0-rc.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

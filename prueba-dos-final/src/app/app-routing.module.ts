@@ -12,6 +12,9 @@ import { UnauthorizedComponent } from "./unauthorized/unauthorized.component";
 import { AdminUsersComponent } from "./users/admin-users/admin-users.component";
 import { UsuarioGestorComponent } from "./usuario-gestor/usuario-gestor.component";
 import { UsuarioCajaComponent } from "./usuario-caja/usuario-caja.component";
+import { CajaComponent } from "./usuario-gestor/caja/caja.component";
+import { EditCajaComponent } from "./usuario-gestor/edit-caja/edit-caja.component";
+import { AsignarTurnoComponent } from "./usuario-gestor/asignar-turno/asignar-turno.component";
 
 
 const appRoutes: Routes = [
@@ -24,8 +27,10 @@ const appRoutes: Routes = [
     { path: 'contract', component: ContractComponent },
     { path: 'admin-users', component: AdminUsersComponent, canActivate: [RoleGuard], data: { expectedRole: 'ADMINISTRADOR' } },
     { path: 'usuario-gestor', component: UsuarioGestorComponent, canActivate: [RoleGuard], data: { expectedRole: 'GESTOR' } },
+    { path: 'asignar-turno/:turnId', component: AsignarTurnoComponent, canActivate: [RoleGuard], data: { expectedRole: 'GESTOR' } },
+    { path: 'caja', component: CajaComponent, canActivate: [RoleGuard], data: { expectedRole: 'GESTOR' } },
+    { path: 'caja-edit/:cajaId', component: EditCajaComponent, canActivate: [RoleGuard], data: { expectedRole: 'GESTOR' } },
     { path: 'usuario-caja', component: UsuarioCajaComponent, canActivate: [RoleGuard], data: { expectedRole: 'CAJERO' } },
-
     { path: 'unauthorized', component: UnauthorizedComponent },
 
 ];

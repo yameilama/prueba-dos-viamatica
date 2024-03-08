@@ -1,4 +1,4 @@
-<app-gestor-header></app-gestor-header>>
+<app-gestor-header></app-gestor-header>
 <div class="container mt-5">
 
     <div class="text-center mb-5">
@@ -7,11 +7,45 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6 mb-4">
+        <div class="col-lg-12 mb-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h3 class="card-title">Turnos atendidos:</h3>
-
+                    <h3 class="card-title">Turnos:</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th># Turno</th>
+                                    <th>Tipo de atención</th>
+                                    <th>Fecha</th>
+                                    <th>Cliente - # Cédula</th>
+                                    <th>Caja responsable</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let attention of allAttention">
+                                    <td>{{ attention.attentionId }}</td>
+                                    <td>{{ attention.turn.description }}</td>
+                                    <td>{{ attention.attentionType.description }}</td>
+                                    <td>{{ attention.turn.date | date:'medium' }}</td>
+                                    <td>{{ attention.client.name}} {{ attention.client.lastName}} - {{
+                                        attention.client.identification}}</td>
+                                    <td>
+                                        <ng-container *ngIf="attention.turn.caja; else noCajaAssigned">
+                                            {{ attention.turn.caja.cajaDescription }}
+                                        </ng-container>
+                                        <ng-template #noCajaAssigned><span style="color:red;">No se ha asignado a una
+                                                caja</span></ng-template>
+                                    </td>
+                                    <td><button class="btn btn-info" (click)="onClick(attention.attentionId)">Asignar a
+                                            una caja</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

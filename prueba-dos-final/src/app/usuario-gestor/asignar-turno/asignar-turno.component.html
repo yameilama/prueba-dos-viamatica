@@ -1,0 +1,22 @@
+<app-gestor-header></app-gestor-header>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">Asignar Caja a Turno</h3>
+                    <form (ngSubmit)="submitAssignment()">
+                        <div class="form-group mb-3">
+                            <label for="cajaSelect" class="form-label">Seleccionar Caja:</label>
+                            <select class="form-control" id="cajaSelect" [(ngModel)]="cajaId" name="cajaId" required>
+                                <option *ngFor="let caja of cajas" [value]="caja.cajaId">{{ caja.cajaDescription }}
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

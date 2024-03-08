@@ -20,6 +20,9 @@ import { UsuarioGestorComponent } from './usuario-gestor/usuario-gestor.componen
 import { GestorHeaderComponent } from './usuario-gestor/gestor-header/gestor-header.component';
 import { UsuarioCajaComponent } from './usuario-caja/usuario-caja.component';
 import { CajaHeaderComponent } from './usuario-caja/caja-header/caja-header.component';
+import { CajaComponent } from './usuario-gestor/caja/caja.component';
+import { EditCajaComponent } from './usuario-gestor/edit-caja/edit-caja.component';
+import { AsignarTurnoComponent } from './usuario-gestor/asignar-turno/asignar-turno.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { CajaHeaderComponent } from './usuario-caja/caja-header/caja-header.comp
     UsuarioGestorComponent,
     GestorHeaderComponent,
     UsuarioCajaComponent,
-    CajaHeaderComponent
+    CajaHeaderComponent,
+    CajaComponent,
+    EditCajaComponent,
+    AsignarTurnoComponent,
   ],
   imports: [
     BrowserModule,

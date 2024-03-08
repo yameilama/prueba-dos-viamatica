@@ -1,0 +1,40 @@
+<app-gestor-header></app-gestor-header>
+<div class="container mt-4 custom-form">
+    <h2 class="mb-4">Editar Caja</h2>
+    <form (ngSubmit)="submitForm()" class="mb-4">
+        <div class="form-group mb-3">
+            <label for="assignedUsers" class="form-label">Usuarios Asignados</label>
+
+            <!-- 
+
+ <select multiple class="form-control" id="assignedUsers" [(ngModel)]="selectedAssignedUsers"
+                name="assignedUsers">
+                <option *ngFor="let user of allUsers" [ngValue]="user.userId">{{ user.username }}</option>
+            </select>
+            -->
+            <select multiple class="form-control" id="assignedUsers" [(ngModel)]="selectedAssignedUsers"
+                name="assignedUsers" (ngModelChange)="onAssignedUsersChange($event)">
+                <option *ngFor="let user of allUsers" [ngValue]="user.userId">{{ user.username }}</option>
+            </select>
+
+        </div>
+        <div class="form-group mb-3">
+            <label for="workingUsers" class="form-label">Usuarios Trabajando</label>
+            <select multiple class="form-control" id="workingUsers" [(ngModel)]="selectedWorkingUsers"
+                name="workingUsers" (ngModelChange)="onWorkingUsersChange($event)">
+                <option *ngFor="let user of allUsers" [ngValue]="user.userId">{{ user.username }}</option>
+            </select>
+
+            <!--
+
+<select multiple class="form-control" id="workingUsers" [(ngModel)]="selectedWorkingUsers"
+                name="workingUsers">
+                <option *ngFor="let user of allUsers" [ngValue]="user.userId">{{ user.username }}</option>
+            </select>
+
+            -->
+
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Guardar Cambios</button>
+    </form>
+</div>

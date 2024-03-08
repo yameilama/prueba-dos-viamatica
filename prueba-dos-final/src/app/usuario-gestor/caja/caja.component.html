@@ -1,0 +1,38 @@
+<app-gestor-header></app-gestor-header>
+<div class="container">
+    <h2>Usuario-Caja</h2>
+    <div *ngIf="userCajasWithWorkingGroupedByCaja.length > 0; else noUserCajas">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID de Caja</th>
+                    <th>Descripción de Caja</th>
+                    <th>Código de Caja</th>
+                    <th>Usuarios asignados a esta caja</th>
+                    <th>Usuarios trabajando en esta caja</th>
+                    <th>Turnos asignados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let group of userCajasWithWorkingGroupedByCaja" (click)="editCaja(group.caja.cajaId)">
+                    <td style="color: blue; text-decoration: underline; cursor: pointer;">{{group.caja.cajaId}}</td>
+                    <td>{{group.caja.cajaDescription}}</td>
+                    <td>{{group.caja.code}}</td>
+                    <td>{{group.assignedUsers.join(', ')}}</td>
+                    <td>{{group.workingUsers.join(', ')}}</td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let turno of group.turnos">
+                                #{{ turno.description }}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #noUserCajas>
+        <p>No se encontraron usuarios asignados a cajas</p>
+    </ng-template>
+</div>
